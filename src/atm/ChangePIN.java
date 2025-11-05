@@ -129,4 +129,3 @@ public class ChangePIN extends JFrame implements ActionListener {
         new Pin("");
     }
 }
-
