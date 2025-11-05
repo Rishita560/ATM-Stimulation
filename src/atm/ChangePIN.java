@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 public class ChangePIN extends JFrame implements ActionListener {
     JButton b1,b2;
     JPasswordField p1,p2;
-    String ChangePIN;
+    String pin;
     Pin(String pin){
         this.ChangePIN =pin;
 
@@ -126,6 +126,6 @@ public class ChangePIN extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new Pin("");
+        new ChangePIN("");
     }
 }
