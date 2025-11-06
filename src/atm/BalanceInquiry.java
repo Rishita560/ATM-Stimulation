@@ -9,9 +9,7 @@ import java.sql.ResultSet;
 public class BalanceEnquiry extends JFrame  implements ActionListener {
 
     String pin;
-
     JLabel label2;
-
     JButton b1;
 
     BalanceEnquiry(String pin){
@@ -24,7 +22,6 @@ public class BalanceEnquiry extends JFrame  implements ActionListener {
         l3.setBounds(0,0,1550,830);
         add(l3);
 
-
         JLabel label1 = new JLabel("Your Current Balance Is Rs");
         label1.setForeground(Color.WHITE);
         label1.setFont(new Font("System", Font.BOLD, 16));
@@ -36,7 +33,6 @@ public class BalanceEnquiry extends JFrame  implements ActionListener {
         label2.setFont(new Font("System", Font.BOLD, 16));
         label2.setBounds(430,180,700,35);
         l3.add(label2);
-
 
         b1 =new JButton("BLACK");
         b1.setBounds(700,406,150,35);
@@ -52,7 +48,6 @@ public class BalanceEnquiry extends JFrame  implements ActionListener {
             while(resultSet.next()){
                 if(resultSet.getString("type").equals("Deposit")){
                     balance += Integer.parseInt(resultSet.getString("amount"));
-
                 }else{
                     balance -= Integer.parseInt(resultSet.getString("amount"));
                 }
