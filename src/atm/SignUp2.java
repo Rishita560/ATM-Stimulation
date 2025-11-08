@@ -184,6 +184,47 @@ public class SignUp2 extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        
+        String rel = (String) comboBox.getSelectedItems();
+        String cate =(String) comboBox2.getSelectedItems();
+        String inc =(String) comboBox3.getSelectedItems();
+        String edu =(String) comboBox4.getSelectedItems();
+        String occ =(String) comboBox5.getSelectedItems();
+
+        String pan = textPan.getText();
+
+        String addhar = textAadhar.getText();
+
+        String scitizen = " ";
+
+        if((r1.isSelected())){
+            scitizen= "yes";
+        }else if(r2.isSelected()){
+            scitizen= "No";
+        }
+
+        String eAccount = " ";
+
+        if((r1.isSelected())){
+            scitizen= "yes";
+        }else if(r2.isSelected()){
+            eAccount= "No";
+        }
+
+        try{
+            if(textPan.getText.equals("") || textAadhar.getText().equals("")){
+                JOptionPane.showMessageDiaglog(null,"Fill all the fields");
+            }else{
+                Con c1= new Con();
+                String q = "insert into Signuptwo values('"+formno +"','"+rel+"','"+cate+"','"+inc+"','"+edu+"','"+occ+"','"+pan+"','"+addhar+"','"+scitizen+"','"+eAccount+"')";
+                c1.statement.executeUpdate(q);
+                new signup3(formno);
+                setVisible(false);
+
+            }
+
+        } catch (Exception E) {
+            E.printStackTrace();
 
     }
 
