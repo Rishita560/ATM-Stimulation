@@ -182,6 +182,70 @@ public class SignUp3 extends Jframe implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e){
 
+        String atype = null;
+        if(r1.isSelected()){
+            atype = "Saving Account";
+
+        }else if(r2.isSelected()){
+            atype = "Fixed Deposit Account";
+        }
+        else if(r3.isSelected()){
+            atype ="Current Account";
+
+        }else if(r4.isSelected()){
+            atype = "Recurring Deposit Account";
+
+        }
+
+        Random ran = new Random();
+        long first7 = (ran.nextLong() % 90000000L) + 1409963000000000L;
+        String cardno = "" +Math.abs(first7);
+
+        long first3 = (ran.nextLong() % 9000L) + 1000L;
+        String pin = "" +Math.abs(first3);
+
+        String fac ="";
+
+        if(c1.isSelected()){
+            fac +="ATM CARD";
+        }else if(c2.isSelected()){
+            fac += "Internet Banking";
+        }else if(c3.isSelected()){
+            fac += "Mobile Banking";
+        }else if(c4.isSelected()){
+            fac += "EMAIL Alerts";
+        }else if(c5.isSelected()){
+            fac += "Cheque Book";
+        }else if(c6.isSelected()){
+            fac += "E-Statement";
+        }
+
+        try{
+            if(e.getSource()==s){
+                if(atype.equals("")){
+                    JOptionPane.showMessageDialog(null,"Fill all the fields");
+                }else{
+                    Connn c1 = new Connn();
+                    String q1 = "insert into signupthree values('"+formno+"','"+atype+"','"+cardno+"','"+pin+"','"+fac+"')";
+                    String q2 = "insert into table login values('"+formno+"','"+cardno+"','"+pin+"')";
+                    c1.statement.executeUpdate(q1);
+                    c1.statement.executeUpdate(q2);
+                    JOptionPane.showMessageDialog(null,"Card Number : "+cardno+ "\n Pin : "+pin );
+                    new Deposit(pin);
+                    setVisible(false);
+
+                }
+            }
+            else if (e.getSource()==c){
+                System.exit(0);
+            }
+
+        }catch(Exception E){
+            E.printStackTrace();
+        }
+
+
+
     }
 
     public static void main (String[] args){
