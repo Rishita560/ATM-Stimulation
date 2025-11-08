@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 
 public class SignUp2 extends JFrame implements ActionListener {
-    JComboBox comboBox,comboBox2,comboBox3,comboBox4;
+    JComboBox comboBox,comboBox2,comboBox3,comboBox4,comboBox5;
 
     JTextField textPan,textAadhar;
 
@@ -17,14 +17,14 @@ public class SignUp2 extends JFrame implements ActionListener {
 
     String formno;
 
-    SignUp2(String formno ) {
+    SignUp2(String formno) {
         super("APPLICATION FORM");
 
-        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("bank.png"));
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icon/bank.png"));
         Image i2 = i1.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
         JLabel image = new JLabel(i3);
-        image.setBounds(150, 30, 100, 100);
+        image.setBounds(150, 5, 100, 100);
         add(image);
 
         this.formno = formno;
@@ -94,11 +94,11 @@ public class SignUp2 extends JFrame implements ActionListener {
         add(l7);
 
         String[] occupation = {"Salaried", "Self-Employed", "Business", "Student", "Retired","Other"};
-        comboBox4 = new JComboBox(occupation);
-        comboBox4.setBackground(new Color(252,208,76));
-        comboBox4.setFont(new Font("Rale way",Font.BOLD,14));
-        comboBox4.setBounds(350,340,320,30);
-        add(comboBox4);
+        comboBox5 = new JComboBox(occupation);
+        comboBox5.setBackground(new Color(252,208,76));
+        comboBox5.setFont(new Font("Rale way",Font.BOLD,14));
+        comboBox5.setBounds(350,340,320,30);
+        add(comboBox5);
 
         JLabel l8 = new JLabel("PAN Nummber");
         l8.setFont(new Font("Rale way", Font.BOLD, 18));
@@ -184,7 +184,6 @@ public class SignUp2 extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
         String rel = (String) comboBox.getSelectedItems();
         String cate =(String) comboBox2.getSelectedItems();
         String inc =(String) comboBox3.getSelectedItems();
@@ -225,6 +224,10 @@ public class SignUp2 extends JFrame implements ActionListener {
 
         } catch (Exception E) {
             E.printStackTrace();
+
+        }
+
+
 
     }
 
